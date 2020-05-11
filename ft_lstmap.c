@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 15:56:31 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/05/10 02:40:36 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/05/11 15:07:43 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		return (0);
 	temp = lst;
 	debut = new;
-	while (temp->next)
+	while (*(&temp))
 	{
 		if (!(debut->content = (*f)(temp->content)))
 			(*del)(temp->content);
@@ -30,7 +30,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		debut = debut->next;
 		temp = temp->next;
 	}
-	if (!(debut->content = (*f)(temp->content)))
-		(*del)(temp->content);
 	return (new);
 }

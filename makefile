@@ -10,6 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
+NAME = libft.a
+
 SRCS = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memchr.c \
 ft_memcmp.c ft_strlen.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 ft_isprint.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c \
@@ -26,13 +28,11 @@ OBJS = ${SRCS:.c=.o}
 
 BONUS = ${SRCS_BONUS:.c=.o}
 
-NAME = libft.a
-
 CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
-LIB = ar rc
+LIB = ar rcs
 
 .c.o : ${DEP}
 		gcc ${CFLAGS} -c $< -o ${<:.c=.o}
