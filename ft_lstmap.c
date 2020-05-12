@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 15:56:31 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/05/12 19:02:26 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/05/12 23:29:22 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,23 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *temp;
-	t_list *new;
-	t_list *debut;
+	t_list	*temp;
+	t_list	*new;
+	t_list	*lstadd;
+	void	*newelem;
 
-	if (!lst)
-		return (NULL);
-	if (!(new = malloc(sizeof(t_list))))
-		return (0);
+	lstadd = NULL;
 	temp = lst;
-	debut = new;
-	while (temp->next)
+	while (temp)
 	{
-		if (!(debut->content = (*f)(temp->content)))
-			(*del)(temp->content);
-		debut->next = malloc(sizeof(t_list));
-		debut = debut->next;
+		if (!(newelem = (*f)(temp->content)))
+			ft_lstdelone(lst, (*del));
+		if (!(new = ft_lstnew(newelem)))
+			return (0);
+		if (newelem)
+			ft_lstadd_back(&lstadd, new);
 		temp = temp->next;
+		lst = lst->next;
 	}
-	if (!(debut->content = (*f)(temp->content)))
-		(*del)(temp->content);
-	return (new);
+	return (lstadd);
 }
