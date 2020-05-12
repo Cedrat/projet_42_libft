@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 17:59:27 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/05/10 02:41:31 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/05/11 17:42:14 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	pos = 0;
 	if (n == 0)
 		return (0);
-	while (word1[pos] && word2[pos] && pos < (n - 1)
-			&& word1[pos] == word2[pos])
+	while (pos < (n - 1) && word1[pos] == word2[pos])
 		pos++;
-	if ((word1[pos] - word2[pos]) > 0)
-		return (1);
-	else if ((word1[pos] - word2[pos]) < 0)
-		return (-1);
-	else
-		return (0);
+	return (word1[pos] - word2[pos]);
 }

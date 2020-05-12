@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 15:55:03 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/05/01 13:46:46 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/05/11 18:58:05 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strdup(const char *s)
 	count = 0;
 	while (s[len])
 		len++;
-	if (!(copy = malloc(sizeof(char) * len)))
+	if (!(copy = malloc(sizeof(char) * (len + 1))))
 		return (0);
 	while (count <= len)
 	{

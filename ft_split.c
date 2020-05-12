@@ -6,13 +6,13 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 17:37:03 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/05/10 21:08:43 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/05/11 15:42:13 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	char *ft_strdup_custom(const char *s, int begin , int end)
+static	char	*ft_strdup_custom(const char *s, int begin, int end)
 {
 	char *t;
 
@@ -22,7 +22,7 @@ static	char *ft_strdup_custom(const char *s, int begin , int end)
 	return (ft_strdup(t));
 }
 
-char	**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	char **tab;
 	int count;
@@ -45,6 +45,6 @@ char	**ft_split(char const *s, char c)
 			if (!(tab[i++] = ft_strdup_custom(s, begin, count - begin)))
 				return (0);
 	}
-	tab[i] = "NULL";
+	tab[i] = NULL;
 	return (tab);
 }
