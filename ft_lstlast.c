@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 16:29:50 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/05/10 02:42:11 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/05/12 19:09:07 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
+	if (!lst)
+		return (NULL);
 	while (lst->next)
 		lst = lst->next;
 	return (lst);

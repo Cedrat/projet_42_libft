@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 17:37:03 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/05/11 15:42:13 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/05/12 20:30:04 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ static	char	*ft_strdup_custom(const char *s, int begin, int end)
 
 char			**ft_split(char const *s, char c)
 {
-	char **tab;
-	int count;
-	int i;
-	int begin;
+	char	**tab;
+	int		count;
+	int		i;
+	int		begin;
 
 	count = 0;
 	i = 0;

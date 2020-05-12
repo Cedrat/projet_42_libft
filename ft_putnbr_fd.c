@@ -6,14 +6,14 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 16:34:00 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/05/11 22:32:09 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/05/12 20:30:53 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-void    ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	unsigned int divider;
 	unsigned int nb2;
@@ -23,7 +23,7 @@ void    ft_putnbr_fd(int n, int fd)
 	if (n < 0)
 	{
 		abs_nb = -n;
-		ft_putchar_fd(('-', fd));
+		ft_putchar_fd('-', fd);
 	}
 	else
 		abs_nb = n;

@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 15:56:31 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/05/11 15:07:43 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/05/12 19:02:26 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list *new;
 	t_list *debut;
 
+	if (!lst)
+		return (NULL);
 	if (!(new = malloc(sizeof(t_list))))
 		return (0);
 	temp = lst;
 	debut = new;
-	while (*(&temp))
+	while (temp->next)
 	{
 		if (!(debut->content = (*f)(temp->content)))
 			(*del)(temp->content);
@@ -30,5 +32,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		debut = debut->next;
 		temp = temp->next;
 	}
+	if (!(debut->content = (*f)(temp->content)))
+		(*del)(temp->content);
 	return (new);
 }
