@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 17:37:03 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/05/13 23:18:34 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/05/13 23:19:45 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char			**ft_split(char const *s, char c)
 		while (s[count] != c && s[count])
 			count++;
 		if (begin != count)
-			if (!(tab[i++] = ft_substr(s, begin, count - begin + 1)))
+			if (!(tab[i++] = ft_substr(s, begin, count - begin)))
 				return (ft_freeforall(tab));
 	}
 	tab[i] = NULL;
