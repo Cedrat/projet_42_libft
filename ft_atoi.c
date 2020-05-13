@@ -6,11 +6,11 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 18:51:03 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/05/10 02:37:50 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/05/13 18:06:02 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *str)
 {
 	int count;
 	int neg;
@@ -19,18 +19,18 @@ int	ft_atoi(const char *nptr)
 	number = 0;
 	neg = 1;
 	count = 0;
-	while (nptr[count] == ' ' || nptr[count] == '\f' || nptr[count] == '\n'
-	|| nptr[count] == '\r' || nptr[count] == '\v' || nptr[count] == '\t')
+	while (str[count] == ' ' || str[count] == '\f' || str[count] == '\n'
+	|| str[count] == '\r' || str[count] == '\v' || str[count] == '\t')
 		count++;
-	if (nptr[count] == '-' || nptr[count] == '+')
+	if (str[count] == '-' || str[count] == '+')
 	{
-		if (nptr[count] == '-')
+		if (str[count] == '-')
 			neg = -1;
 		count++;
 	}
-	while ('0' <= nptr[count] && nptr[count] <= '9' && nptr[count])
+	while ('0' <= str[count] && str[count] <= '9' && str[count])
 	{
-		number = number * 10 + (nptr[count] - '0');
+		number = number * 10 + (str[count] - '0');
 		count++;
 	}
 	return (number * neg);
