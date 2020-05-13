@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 17:37:03 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/05/13 15:10:37 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/05/13 17:12:40 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char			**ft_split(char const *s, char c)
 	count = 0;
 	i = 0;
 	begin = 0;
-	if (!(tab = malloc(sizeof(char*) * ft_nbr_of_split(s, c))))
+	if (!(tab = malloc(sizeof(char*) * (ft_nbr_of_split(s, c) + 1))))
 		return (0);
 	while (s[count])
 	{
