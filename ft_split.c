@@ -6,20 +6,24 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 17:37:03 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/05/13 17:12:40 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/05/13 22:59:40 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	char	*ft_strdup_custom(const char *s, int begin, int end)
+static	void	*ft_freeforall(char **content)
 {
-	char *t;
+	size_t i;
 
-	if (!(t = ft_strdup(&s[begin])))
-		return (0);
-	t[end] = '\0';
-	return (ft_strdup(t));
+	i = 0;
+	while (content[i])
+    {
+        free(content[i]);
+        i++;
+    }
+    free(content);
+	return (NULL);
 }
 
 static	size_t	ft_nbr_of_split(char const *s, char c)
@@ -64,8 +68,8 @@ char			**ft_split(char const *s, char c)
 		while (s[count] != c && s[count])
 			count++;
 		if (begin != count)
-			if (!(tab[i++] = ft_strdup_custom(s, begin, count - begin)))
-				return (0);
+			if (!(tab[i++] = ft_substr(s, begin, count - begin + 1)))
+				return (ft_freeforall(tab));
 	}
 	tab[i] = NULL;
 	return (tab);
