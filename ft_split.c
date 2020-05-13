@@ -6,7 +6,7 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 17:37:03 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/05/13 22:59:40 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/05/13 23:18:34 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ static	void	*ft_freeforall(char **content)
 
 	i = 0;
 	while (content[i])
-    {
-        free(content[i]);
-        i++;
-    }
-    free(content);
+	{
+		free(content[i]);
+		i++;
+	}
+	free(content);
 	return (NULL);
 }
 
