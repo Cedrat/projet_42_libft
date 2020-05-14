@@ -6,18 +6,18 @@
 /*   By: lnoaille <lnoaille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 17:37:03 by lnoaille          #+#    #+#             */
-/*   Updated: 2020/05/13 23:19:45 by lnoaille         ###   ########.fr       */
+/*   Updated: 2020/05/14 18:56:08 by lnoaille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	void	*ft_freeforall(char **content)
+static	void	*ft_freeforall(char **content, size_t x)
 {
-	size_t i;
+	int i;
 
 	i = 0;
-	while (content[i])
+	while (i < x)
 	{
 		free(content[i]);
 		i++;
@@ -68,8 +68,8 @@ char			**ft_split(char const *s, char c)
 		while (s[count] != c && s[count])
 			count++;
 		if (begin != count)
-			if (!(tab[i++] = ft_substr(s, begin, count - begin)))
-				return (ft_freeforall(tab));
+			if (!(tab[i++] = ft_substr(s, begin, count - begin + 1)))
+				return (ft_freeforall(tab, i));
 	}
 	tab[i] = NULL;
 	return (tab);
