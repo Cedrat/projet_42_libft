@@ -1,4 +1,4 @@
-# projet_42_libft
+# 42_libft
 ## Note obtenue 115/100
 ### Rendu pour fonctionner et avoir un comportement similaire à la libc sous Ubuntu 18.04
 
